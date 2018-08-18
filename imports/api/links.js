@@ -68,5 +68,15 @@ Meteor.methods({
       $set: {lastVisitedAt: new Date().getTime()},
       $inc: {visitedCount: 1}
     })
+  },
+  'links.remove' (_id) {
+    new SimpleSchema({
+      _id: {
+        type: String,
+        min: 1
+      }
+    }).validate({ _id });
+
+    Links.remove({ _id });
   }
 });

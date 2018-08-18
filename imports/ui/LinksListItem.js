@@ -44,6 +44,9 @@ export default class LinksListItem extends React.Component {
         }}>
           {this.props.visible ? 'Hide' : 'Unhide'}
         </button>
+        <button className="button button--pill" onClick={() => {
+          Meteor.call('links.remove', this.props._id)
+        }}>Remove</button>
       </div>
     )
   }
